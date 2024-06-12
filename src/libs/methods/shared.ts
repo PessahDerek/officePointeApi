@@ -4,8 +4,11 @@ import jwt, {JwtPayload} from "jsonwebtoken";
 
 export const respond = (res: express.Response, message: string, status: number = 200, body?: object ) => {
     res.statusCode = status;
-    res.statusMessage = message;
-    res.json(body);
+    res.setHeader('message', message)
+    res.send({
+        message: message,
+        extra: body
+    });
     res.end()
 }
 

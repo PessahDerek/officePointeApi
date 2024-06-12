@@ -10,10 +10,11 @@ export const deleteUser: Controller = async (req, res) => {
         if(!user_id)
             return respond(res, "Bad Request", 400);
         await UsersModel.findByIdAndDelete(user_id)
-            .then(user => {
-                respond(res, `${user?.firstName} has been deleted`, 200);
+            .then(() => {
+                respond(res, `User has been deleted!`, 200);
             })
             .catch(err => {
+                console.log(err)
                 respond(res, "Failed to delete user! Check all fields and try again!", 500)
             })
     } catch (err){

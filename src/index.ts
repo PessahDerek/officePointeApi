@@ -12,6 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors({
     origin: "*",
     credentials: false,
+    exposedHeaders: ['message']
 }))
 
 app.use("/mock_api", indexRoutes)
