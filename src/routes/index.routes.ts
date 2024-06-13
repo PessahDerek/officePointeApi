@@ -9,7 +9,7 @@ const indexRoutes = Router();
 indexRoutes
     .use(commonRoutes)
     .use("/admin", adminRoutes)
-    // .use("/super", superRoutes)
+    .use("/super", superRoutes)
 
 export default indexRoutes;
 
